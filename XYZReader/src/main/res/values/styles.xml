@@ -1,7 +1,35 @@
 <resources>
+    <color name="brand_primary">#3E50B4</color>
+    <color name="brand_primary_dark">#3646A8</color>
+    <color name="brand_accent">#FE3E80</color>
+
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="colorPrimary">@color/blue09</item>
-        <item name="colorPrimaryDark">@color/blue08</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorPrimary">@color/brand_primary</item>
+        <item name="colorPrimaryDark">@color/brand_primary_dark</item>
+        <item name="colorAccent">@color/brand_accent</item>
+    </style>
+
+    <style name="ToolBarWithNavigationBack">
+        <item name="navigationIcon">@drawable/abc_ic_ab_back_mtrl_am_alpha</item>
+    </style>
+
+    <style name="CollapsingTextAppearance" parent="Base.TextAppearance.AppCompat.Widget.ActionBar.Title"/>
+    <style name="CollapsingTextAppearance.Inverse" >
+        <item name="android:textSize">30sp</item>
+    </style>
+
+    <style name="TextComponent"/>
+
+    <style name="TextAppearance" parent="TextAppearance.AppCompat"/>
+    <style name="TextAppearance.Header">
+        <item name="android:textAllCaps">true</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textColor">?colorAccent</item>
+    </style>
+    <style name="TextAppearance.SubHeader">
+        <item name="android:textAllCaps">true</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textColor">@color/purple01</item>
+        <item name="android:textSize">12sp</item>
     </style>
 </resources>
