@@ -15,12 +15,16 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.ImageView;
 
 import com.example.xyzreader.R;
 import com.example.xyzreader.data.ArticleLoader;
 import com.example.xyzreader.data.ItemsContract;
 import com.example.xyzreader.data.UpdaterService;
+import com.example.xyzreader.events.ArticleSelectEvent;
+import com.example.xyzreader.provider.BusProvider;
 import com.example.xyzreader.ui.adapters.ReaderAdapter;
+import com.squareup.otto.Subscribe;
 
 /**
  * An activity representing a list of Articles. This activity has different presentations for
@@ -29,7 +33,7 @@ import com.example.xyzreader.ui.adapters.ReaderAdapter;
  * activity presents a grid of items as cards.
  */
 public class ArticleListActivity extends AppCompatActivity implements
-        LoaderManager.LoaderCallbacks<Cursor>, ItemClickSupport.OnItemClickListener {
+        LoaderManager.LoaderCallbacks<Cursor> {
 
     private Toolbar mToolbar;
     private SwipeRefreshLayout mSwipeRefreshLayout;
@@ -41,6 +45,7 @@ public class ArticleListActivity extends AppCompatActivity implements
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_article_list);
         initViews();
+        BusProvider.getInstance().register(this);
         getLoaderManager().initLoader(0, null, this);
         if (savedInstanceState == null) {
             refresh();
@@ -96,7 +101,6 @@ public class ArticleListActivity extends AppCompatActivity implements
     public void onLoadFinished(Loader<Cursor> cursorLoader, Cursor cursor) {
         mCursor = cursor;
         bindViews(cursor);
-        ItemClickSupport.addTo(mRecyclerView).setOnItemClickListener(this);
     }
 
     private void bindViews(Cursor cursor) {
@@ -115,10 +119,9 @@ public class ArticleListActivity extends AppCompatActivity implements
     }
 
 
-    @Override
-    public void onItemClicked(RecyclerView recyclerView, int position, View v) {
+    public void onItemClicked(View v, int position) {
         Intent intent = new Intent(Intent.ACTION_VIEW, ItemsContract.Items.buildItemUri(getItemId(position)));
-        ForegroundImageView imageView = (ForegroundImageView) v.findViewById(R.id.thumbnail);
+        ImageView imageView = (ImageView) v.findViewById(R.id.thumbnail);
         String transitionName = imageView.getTransitionName();
         ArticleListActivity.this.startActivity(intent,
                 ActivityOptions.makeSceneTransitionAnimation(ArticleListActivity.this, v,
@@ -128,6 +131,11 @@ public class ArticleListActivity extends AppCompatActivity implements
     public long getItemId(int position) {
         mCursor.moveToPosition(position);
         return mCursor.getLong(ArticleLoader.Query._ID);
+    }
+
+    @Subscribe
+    public void onArticleSelectEvent(ArticleSelectEvent event) {
+        onItemClicked(event.getView(), event.getPosition());
     }
 
 }

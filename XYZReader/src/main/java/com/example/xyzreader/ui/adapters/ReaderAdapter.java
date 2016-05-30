@@ -5,17 +5,20 @@ import android.database.Cursor;
 import android.support.v7.widget.RecyclerView;
 import android.text.format.DateUtils;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.xyzreader.R;
 import com.example.xyzreader.data.ArticleLoader;
+import com.example.xyzreader.events.ArticleSelectEvent;
+import com.example.xyzreader.provider.BusProvider;
 import com.example.xyzreader.ui.viewHolders.ReaderViewHolder;
 import com.squareup.picasso.Picasso;
 
 /**
  * Created by Cristhian on 5/30/2016.
  */
-public class ReaderAdapter extends RecyclerView.Adapter<ReaderViewHolder> {
+public class ReaderAdapter extends RecyclerView.Adapter<ReaderViewHolder> implements ReaderViewHolder.OnClickArticle {
     private Context mContext;
     private Cursor mCursor;
 
@@ -38,6 +41,11 @@ public class ReaderAdapter extends RecyclerView.Adapter<ReaderViewHolder> {
     @Override
     public void onBindViewHolder(ReaderViewHolder holder, int position) {
         mCursor.moveToPosition(position);
+        setupView(holder);
+        holder.setOnClickArticle(this);
+    }
+
+    private void setupView(ReaderViewHolder holder) {
         holder.titleView.setText(mCursor.getString(ArticleLoader.Query.TITLE));
         String subtitle = DateUtils.getRelativeTimeSpanString(
                 mCursor.getLong(ArticleLoader.Query.PUBLISHED_DATE),
@@ -53,5 +61,10 @@ public class ReaderAdapter extends RecyclerView.Adapter<ReaderViewHolder> {
     @Override
     public int getItemCount() {
         return mCursor.getCount();
+    }
+
+    @Override
+    public void onSelected(View v, int position) {
+        BusProvider.postOnMain(new ArticleSelectEvent(v, position));
     }
 }
