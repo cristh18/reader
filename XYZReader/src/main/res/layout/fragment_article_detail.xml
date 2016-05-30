@@ -9,15 +9,15 @@
         android:id="@+id/appBarLayout_detail_feed"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:elevation="4dp"
+        android:elevation="@dimen/appBar_elevation"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
         <android.support.design.widget.CollapsingToolbarLayout
             android:id="@+id/collapsingToolbarLayout_detail_feed"
             android:layout_width="match_parent"
-            android:layout_height="300dp"
+            android:layout_height="@dimen/ctl_height"
             app:contentScrim="?colorPrimary"
-            app:expandedTitleMarginBottom="94dp"
+            app:expandedTitleMarginBottom="@dimen/ctl_title_margin_bottom"
             app:expandedTitleTextAppearance="@style/CollapsingTextAppearance.Inverse"
             app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
@@ -43,20 +43,20 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scrollbars="none"
-        app:behavior_overlapTop="78dp"
+        app:behavior_overlapTop="@dimen/nsv_behavior_overlap_top"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <android.support.v7.widget.CardView
             android:id="@+id/cardView_detail_feed"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="8dp"
+            android:layout_margin="@dimen/detail_cardView_side_margin"
             app:cardBackgroundColor="@android:color/white"
-            app:cardCornerRadius="4dp"
-            app:cardElevation="4dp"
-            app:contentPaddingBottom="16dp"
-            app:contentPaddingLeft="16dp"
-            app:contentPaddingRight="16dp">
+            app:cardCornerRadius="@dimen/detail_cardView_corner_radius"
+            app:cardElevation="@dimen/cardview_default_elevation"
+            app:contentPaddingBottom="@dimen/article_title_padding"
+            app:contentPaddingLeft="@dimen/article_title_padding"
+            app:contentPaddingRight="@dimen/article_title_padding">
 
             <LinearLayout
                 android:id="@+id/container_article_description"
@@ -68,7 +68,7 @@
                     android:id="@+id/textView_title_article"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="@dimen/detail_article_title_margin_top"
                     android:gravity="center_horizontal"
                     android:textAllCaps="true"
                     style="@android:style/TextAppearance.Material.Title"
@@ -90,9 +90,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/detail_inner_horiz_margin"
                     android:layout_marginRight="@dimen/detail_inner_horiz_margin"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="@dimen/detail_article_body_margin_top"
                     android:fontFamily="sans-serif-light"
-                    android:lineSpacingExtra="8dp"
+                    android:lineSpacingExtra="@dimen/detail_article_body_line_spacing"
                     android:lineSpacingMultiplier="@fraction/detail_body_line_spacing_multiplier"
                     android:paddingBottom="@dimen/detail_body_bottom_margin"
                     android:textColorLink="@color/colorAccent"
@@ -113,12 +113,12 @@
         android:layout_marginEnd="@dimen/fab_margin"
         android:contentDescription="@string/action_share"
         android:src="@drawable/ic_share"
-        app:borderWidth="0dp"
+        app:borderWidth="@dimen/list_toolbar_side_margin"
         app:elevation="@dimen/fab_elevation"
         app:fabSize="normal"
         app:layout_anchor="@id/cardView_detail_feed"
         app:layout_anchorGravity="bottom|right|end"
-        app:pressedTranslationZ="12dp" />
+        app:pressedTranslationZ="@dimen/fab_pressed_elevation" />
 
 
 </android.support.design.widget.CoordinatorLayout>

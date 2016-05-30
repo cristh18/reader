@@ -85,5 +85,7 @@
 
     <color name="grey_ripple">#8ddd</color>
     <color name="placeholder">#ddd</color>
+    <color name="article_body_text_color">#6000</color>
+
 
 </resources>

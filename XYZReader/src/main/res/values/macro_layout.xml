@@ -3,6 +3,7 @@
     <dimen name="list_side_margin">4dp</dimen>
     <dimen name="list_toolbar_side_margin">0dp</dimen>
     <integer name="list_column_count">2</integer>
+    <dimen name="list_margin_top">60dp</dimen>
 
     <!-- detail -->
     <bool name="detail_is_card">false</bool>
@@ -14,4 +15,16 @@
     <dimen name="detail_metabar_title_bottom_padding">4dp</dimen>
     <dimen name="detail_body_top_margin">16dp</dimen>
     <dimen name="detail_body_bottom_margin">88dp</dimen>
+    <dimen name="cardView_side_margin">4dp</dimen>
+    <dimen name="article_title_padding">16dp</dimen>
+    <dimen name="article_title_padding_bottom">4dp</dimen>
+    <dimen name="ctl_height">300dp</dimen>
+    <dimen name="ctl_title_margin_bottom">94dp</dimen>
+    <dimen name="nsv_behavior_overlap_top">78dp</dimen>
+    <dimen name="detail_cardView_side_margin">8dp</dimen>
+    <dimen name="detail_cardView_corner_radius">4dp</dimen>
+    <dimen name="detail_article_title_margin_top">20dp</dimen>
+    <dimen name="detail_article_body_margin_top">10dp</dimen>
+    <dimen name="detail_article_body_line_spacing">8dp</dimen>
+    <dimen name="fab_pressed_elevation">12dp</dimen>
 </resources>
