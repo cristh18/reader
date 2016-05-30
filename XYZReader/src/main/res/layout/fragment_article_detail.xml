@@ -26,7 +26,8 @@
                 android:layout_width="fill_parent"
                 android:layout_height="match_parent"
                 android:scaleType="centerCrop"
-                tools:src="@drawable/london_flat" />
+                tools:src="@drawable/london_flat"
+                android:transitionName="@string/transition_photo"/>
 
             <android.support.v7.widget.Toolbar
                 android:id="@+id/toolbar_detail_feed"
@@ -58,6 +59,7 @@
             app:contentPaddingRight="16dp">
 
             <LinearLayout
+                android:id="@+id/container_article_description"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">

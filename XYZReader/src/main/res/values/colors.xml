@@ -83,4 +83,7 @@
 
     <color name="black01">#000000</color>
 
+    <color name="grey_ripple">#8ddd</color>
+    <color name="placeholder">#ddd</color>
+
 </resources>

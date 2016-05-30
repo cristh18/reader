@@ -24,7 +24,8 @@
 		Aenean ullamcorper dolor non condimentum congue. Aenean mauris nunc, pellentesque at placerat vitae,
 		aliquet quis orci. Curabitur maximus augue ut bibendum sagittis.
 	</string>
-	<string name="text_header">Text</string>
-	<string name="not_apply">N/A</string>
-	<string name="sample_text">Some sample text</string>
+    <string name="text_header">Text</string>
+    <string name="not_apply">N/A</string>
+    <string name="sample_text">Some sample text</string>
+    <string name="transition_photo">transition_photo</string>
 </resources>

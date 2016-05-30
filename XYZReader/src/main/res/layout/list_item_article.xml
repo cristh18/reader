@@ -15,11 +15,15 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <com.example.xyzreader.ui.DynamicHeightNetworkImageView
+        <com.example.xyzreader.ui.ForegroundImageView
             android:id="@+id/thumbnail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/photo_placeholder" />
+            android:scaleType="centerCrop"
+            android:foreground="@drawable/grey_ripple"
+            android:clickable="true"
+            android:stateListAnimator="@animator/raise"
+            android:transitionName="@string/transition_photo" />
 
         <TextView
             android:id="@+id/article_title"
