@@ -9,6 +9,7 @@
         android:id="@+id/appBarLayout_detail_feed"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:elevation="4dp"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
         <android.support.design.widget.CollapsingToolbarLayout
@@ -18,8 +19,7 @@
             app:contentScrim="?colorPrimary"
             app:expandedTitleMarginBottom="94dp"
             app:expandedTitleTextAppearance="@style/CollapsingTextAppearance.Inverse"
-            app:layout_scrollFlags="scroll|exitUntilCollapsed"
-            app:title="Goku">
+            app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
             <ImageView
                 android:id="@+id/imageView_photo_feed"
@@ -69,22 +69,21 @@
                     android:layout_marginTop="20dp"
                     android:gravity="center_horizontal"
                     android:textAllCaps="true"
-                    android:textAppearance="@style/TextAppearance.Header"
+                    style="@android:style/TextAppearance.Material.Title"
                     tools:text="@string/text_header" />
 
                 <TextView
                     android:id="@+id/textView_line_article"
-                    style="?android:attr/textAppearanceSmall"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center_horizontal"
                     android:textAllCaps="false"
-                    android:textAppearance="@style/TextAppearance.SubHeader"
+                    style="@android:style/TextAppearance.Material.Subhead"
                     tools:text="@string/text_header" />
 
                 <TextView
                     android:id="@+id/article_body"
-                    style="?android:attr/textAppearanceMedium"
+                    style="@android:style/TextAppearance.Material.Body1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/detail_inner_horiz_margin"
@@ -109,7 +108,7 @@
         android:layout_alignTop="@+id/fab"
         android:layout_gravity="bottom|end"
         android:layout_marginBottom="@dimen/fab_margin"
-        android:layout_marginRight="@dimen/fab_margin"
+        android:layout_marginEnd="@dimen/fab_margin"
         android:contentDescription="@string/action_share"
         android:src="@drawable/ic_share"
         app:borderWidth="0dp"

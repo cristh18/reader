@@ -26,10 +26,4 @@
         <item name="android:fontFamily">sans-serif-medium</item>
         <item name="android:textColor">?colorAccent</item>
     </style>
-    <style name="TextAppearance.SubHeader">
-        <item name="android:textAllCaps">true</item>
-        <item name="android:fontFamily">sans-serif-medium</item>
-        <item name="android:textColor">@color/purple01</item>
-        <item name="android:textSize">12sp</item>
-    </style>
 </resources>
