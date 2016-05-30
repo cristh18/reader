@@ -1,5 +1,6 @@
 package com.example.xyzreader.ui;
 
+import android.app.Activity;
 import android.app.Fragment;
 import android.app.LoaderManager;
 import android.content.Intent;
@@ -56,6 +57,7 @@ public class ArticleDetailFragment extends Fragment implements
     private static final int PERCENTAGE_TO_SHOW_IMAGE = 20;
     private int mMaxScrollSize;
     private boolean mIsImageHidden;
+    private Typeface sourceSansPro;
 
 
     /**
@@ -132,10 +134,14 @@ public class ArticleDetailFragment extends Fragment implements
             mRootView.setVisibility(View.VISIBLE);
             mRootView.animate().alpha(1);
             collapsingToolbarLayoutDetailFeed.setTitle(mCursor.getString(ArticleLoader.Query.TITLE));
+            collapsingToolbarLayoutDetailFeed.setCollapsedTitleTypeface(sourceSansPro);
+            collapsingToolbarLayoutDetailFeed.setExpandedTitleTypeface(sourceSansPro);
             appBarLayoutDetailFeed.addOnOffsetChangedListener(this);
             textViewLineArticle.setMovementMethod(new LinkMovementMethod());
-            bodyView.setTypeface(Typeface.createFromAsset(getResources().getAssets(), "Rosario-Regular.ttf"));
+            bodyView.setTypeface(sourceSansPro);
             textViewTitleArticle.setText(mCursor.getString(ArticleLoader.Query.TITLE));
+            textViewTitleArticle.setTypeface(sourceSansPro);
+            textViewLineArticle.setTypeface(sourceSansPro);
             textViewLineArticle.setText(Html.fromHtml(
                     DateUtils.getRelativeTimeSpanString(
                             mCursor.getLong(ArticleLoader.Query.PUBLISHED_DATE),
@@ -240,4 +246,9 @@ public class ArticleDetailFragment extends Fragment implements
         }
     }
 
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        sourceSansPro = Typeface.createFromAsset(getActivity().getAssets(), "SourceSansPro-Regular.ttf");
+    }
 }

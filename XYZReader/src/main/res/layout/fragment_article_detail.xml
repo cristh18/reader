@@ -26,8 +26,8 @@
                 android:layout_width="fill_parent"
                 android:layout_height="match_parent"
                 android:scaleType="centerCrop"
-                tools:src="@drawable/london_flat"
-                android:transitionName="@string/transition_photo"/>
+                android:transitionName="@string/transition_photo"
+                tools:src="@drawable/london_flat" />
 
             <android.support.v7.widget.Toolbar
                 android:id="@+id/toolbar_detail_feed"
@@ -66,21 +66,21 @@
 
                 <TextView
                     android:id="@+id/textView_title_article"
+                    style="@android:style/TextAppearance.Material.Title"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/detail_article_title_margin_top"
                     android:gravity="center_horizontal"
-                    android:textAllCaps="true"
-                    style="@android:style/TextAppearance.Material.Title"
+                    android:textAllCaps="false"
                     tools:text="@string/text_header" />
 
                 <TextView
                     android:id="@+id/textView_line_article"
+                    style="@android:style/TextAppearance.Material.Subhead"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center_horizontal"
                     android:textAllCaps="false"
-                    style="@android:style/TextAppearance.Material.Subhead"
                     tools:text="@string/text_header" />
 
                 <TextView
@@ -91,8 +91,8 @@
                     android:layout_marginLeft="@dimen/detail_inner_horiz_margin"
                     android:layout_marginRight="@dimen/detail_inner_horiz_margin"
                     android:layout_marginTop="@dimen/detail_article_body_margin_top"
+                    android:alpha="0.5"
                     android:fontFamily="sans-serif-light"
-                    android:lineSpacingExtra="@dimen/detail_article_body_line_spacing"
                     android:lineSpacingMultiplier="@fraction/detail_body_line_spacing_multiplier"
                     android:paddingBottom="@dimen/detail_body_bottom_margin"
                     android:textColorLink="@color/colorAccent"

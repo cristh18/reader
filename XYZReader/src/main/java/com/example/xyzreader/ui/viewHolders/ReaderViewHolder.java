@@ -1,5 +1,6 @@
 package com.example.xyzreader.ui.viewHolders;
 
+import android.graphics.Typeface;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
@@ -24,9 +25,12 @@ public class ReaderViewHolder extends RecyclerView.ViewHolder implements View.On
     }
 
     private void initViews(View view) {
+        Typeface sourceSansPro = Typeface.createFromAsset(view.getContext().getAssets(), "SourceSansPro-Regular.ttf");
         thumbnailView = (ImageView) view.findViewById(R.id.thumbnail);
         titleView = (TextView) view.findViewById(R.id.article_title);
+        titleView.setTypeface(sourceSansPro);
         subtitleView = (TextView) view.findViewById(R.id.article_subtitle);
+        subtitleView.setTypeface(sourceSansPro);
     }
 
     @Override
